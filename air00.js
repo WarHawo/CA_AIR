@@ -1,20 +1,22 @@
 /* programme qui découpe une chaîne de caractères en tableau (séparateurs : espaces, tabulations, retours à la ligne). */
 
-function my_split(string, sep) {
+function mySplit(string, sep) {
   let tab = [];
   let str = "";
-  let nSep = 0;
+  let numSep = 0;
   let j = 0;
   
-  if (!string || !sep || sep.length > 1)
-      return "error";
-  
+  if (!string || !sep || sep.length > 1){
+     console.error("erreur");
+      process.exit(1);
+  }
+    
   for (let i = 0; i < string.length; i++) {
     if (string[i] === sep)
-      nSep++;
+      numSep++;
   }
   
-  for (let i = 0; i <= nSep; i++) {
+  for (let i = 0; i <= numSep; i++) {
     while (string[j] !== sep && j < string.length) {
       str += string [j];
       j++;
@@ -34,4 +36,4 @@ function displayTab(tab){
 }
 
 string = process.argv[2];
-displayTab(my_split(string, " "));
+displayTab(mySplit(string, " "));
