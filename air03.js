@@ -1,26 +1,25 @@
 /* programme qui retourne la valeur d’une liste qui n’a pas de paire.
 */
-function findOdd(arg) {
-  const occ = [];
 
-  if (!arg || (arg.length % 2) === 0 ) {
-    console.log("erreur, le nombre d'argument est incorrecte");
+function findOdd(args) 
+{
+  let occurence = [];
+  if (!args || (args.length % 2) == 0) {
+    console.error("erreur: nombre d'arguments incorrect");
     process.exit(1);
   }
-
-  for (let i = 0; i < arg.length; i++) {
-    const idx = occ.indexOf(arg[i]);
-    if (idx !== -1)
-      occ.splice(idx, 1);
+ 
+  for (let i =0; i< args.length; i++) {
+    let index = occurence.indexOf(args[i]);
+    if (index !== -1)
+      occurence.splice(index, 1);
     else
-      occ.push(arg[i])
+      occurence.push(args[i]);
   }
-  if (occ.length > 1) {
-    console.log("erreur, il y a plusieur intru");
-    process.exit(1);
-  }    
-  return occ[0];
+  if (occurence.length > 1)
+    return "Il y a plus d'un intrus";
+  return occurence;
 }
 
-args = process.argv.slice(2);
+args = process.argv.slice(2)
 console.log(findOdd(args));

@@ -7,8 +7,8 @@ function mySplit(string, sep) {
   let j = 0;
   
   if (!string || !sep || sep.length > 1){
-     console.error("erreur");
-      process.exit(1);
+    console.error("erreur");
+    process.exit(1);
   }
     
   for (let i = 0; i < string.length; i++) {
