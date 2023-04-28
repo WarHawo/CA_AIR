@@ -7,7 +7,11 @@ function mySplit(string, sep) {
   let j = 0;
   
   if (!string || !sep || sep.length > 1){
+<<<<<<< HEAD
     console.error("erreur");
+=======
+    console.error("erreur: le nombre d'arguments est incorrecte");
+>>>>>>> f7b627b93a3de59530472788d437a74f01eb78af
     process.exit(1);
   }
     

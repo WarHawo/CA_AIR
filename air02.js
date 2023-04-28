@@ -4,7 +4,7 @@ function myStrConcat(str, sep) {
   let newStr = "";
   
   if (!str || !sep) {
-    console.error("erreur");
+    console.error("erreur, le nombre d'argument est incorrecte");
     process.exit(1);
   }
 

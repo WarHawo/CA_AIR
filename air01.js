@@ -2,9 +2,10 @@
 
 function mySplitStr(string, sep) {
   if (!string || !sep) {
-    console.error("erreur");
+    console.error("erreur, le nombre d'argument est incorrecte");
     process.exit(1);
   }
+  
   //let newTab = mySplit(string.replaceAll(sep, "*"), "*");
   let newTab = string.replaceAll(sep, "*").split("*");
   return newTab;
