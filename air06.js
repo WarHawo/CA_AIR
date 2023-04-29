@@ -11,7 +11,7 @@ function eraseArray(arrayStr, str)
     }
 
     if (str.length > 1)
-        return "Only one char is accepted as last element";
+        return "Seulement un caractères est accepté en dernier argument";
     str = str.toLowerCase();
 
     for(let i = 0; i < arrayStr.length; i++) {
