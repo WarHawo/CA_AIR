@@ -1,4 +1,4 @@
-/*programme qui affiche une chaîne de caractères en évitant les caractères identiques adjacents.*/
+/* programme qui affiche une chaîne de caractères en évitant les caractères identiques adjacents.*/
 
 function oneCharOnly(args)
 {
