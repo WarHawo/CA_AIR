@@ -16,6 +16,7 @@ function findOdd(args)
     else
       occurence.push(args[i]);
   }
+
   if (occurence.length > 1)
     return "Il y a plus d'un intrus";
   return occurence;

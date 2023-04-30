@@ -1,55 +1,38 @@
 /* Programme qui est capable de reconnaître et de faire une opération (addition ou soustraction) sur chaque entier d’une liste.
 */
-
-function parseArgs(args) {
-
-    for (let i = 0; i < args.length; i++) {
-        if (isNaN(Number(args[i]))) {
-            console.error("erreur, seul les nombres sont acceptés");
-            process.exit(1);
-        }
-    }
-    return args;
-}
-
-function display(argv) {
-    let newArray = "";
-    for (let i = 0; i < argv.length; i++) {
-        newArray += argv[i];
-        if (i != argv.length -1)
-            newArray += " ";
-    }
-    return newArray;
-}
+const {displayStrArray, displayTab} = require('./utils/display');
+const parseNumber = require('./utils/parseNumber');
 
 function myCalculator(args) {
-    let result = [];
-
     if (!args || args.length < 2) {
         console.error("erreur, le nombre d'argument est incorrecte");
         process.exit(1);
     }
-    parseArgs(args);
+    parseNumber(args);
+
+    let num ="";
+    let result = [];
     let operation = args[args.length -1];
+    
+    for(let i = 1; i < operation.length; i++) {
+        num += operation[i];
+    }
 
     for (let i = 0; i < args.length - 1; i++) {
         if (operation[0] === '+') {
-            operation.slice(1);
-            result[i] = Number(args[i]) + operation;
+            result[i] = Number(args[i]) + Number(num);
         }
         else if (operation[0] === '-') {
-            operation.slice(1);
-            result[i] = Number(args[i]) - operation;
+            result[i] = Number(args[i]) - Number(num);
         }
-        else
-            return "erreur";
-
+        else {
+            console.error("erreur, operation");
+            process.exit(1);
+        }
     }
-    
-    let newArray = display(result);
-    return newArray;
+    return result;
 }
 
 let args = process.argv.slice(2);
 
-console.log(myCalculator(args));
+displayStrArray(myCalculator(args));

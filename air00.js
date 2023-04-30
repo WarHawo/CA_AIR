@@ -1,4 +1,7 @@
-/* programme qui découpe une chaîne de caractères en tableau (séparateurs : espaces, tabulations, retours à la ligne). */
+/* programme qui découpe une chaîne de caractères en tableau (séparateurs : espaces, tabulations, retours à la ligne)
+*/
+
+const {displayStrArray, displayTab} = require('./utils/display');
 
 function mySplit(string, sep) {
   let tab = [];
@@ -26,13 +29,6 @@ function mySplit(string, sep) {
     j++;
   }
   return tab;
-}
-
-function displayTab(tab){
-  for(let i = 0; i < tab.length; i++)
-    {
-      console.log(tab[i]);
-    }
 }
 
 string = process.argv[2];

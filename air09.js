@@ -1,15 +1,7 @@
 /* programme qui décale tous les éléments d’un tableau vers la gauche. Le premier élément devient le dernier à chaque rotation.
 */
 
-function displayTab(argv) {
-    let newArray = "";
-    for (let i = 0; i < argv.length; i++) {
-        newArray += argv[i];
-        if (i != argv.length -1)
-            newArray += " ";
-    }
-    return newArray;
-}
+const {displayStrArray, displayTab} = require('./utils/display');
 
 function maRotation(array)
 {
@@ -22,8 +14,8 @@ function maRotation(array)
     for (let i = 0; i < array.length - 1; i++) {
         newStr[i] = array[i + 1];
     }
-    return displayTab(newStr);
+    return newStr;
 }
 
 argv = process.argv.slice(2);
-console.log(maRotation(argv));
+displayStrArray(maRotation(argv));

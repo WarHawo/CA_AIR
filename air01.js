@@ -1,4 +1,7 @@
-/* programme qui découpe une chaîne de caractères en tableau en fonction du séparateur donné en 2e argument.*/
+/* programme qui découpe une chaîne de caractères en tableau en fonction du séparateur donné en 2e argument.
+*/
+
+const {displayStrArray, displayTab} = require('./utils/display');
 
 function mySplitStr(string, sep) {
   if (!string || !sep) {
@@ -6,16 +9,8 @@ function mySplitStr(string, sep) {
     process.exit(1);
   }
   
-  //let newTab = mySplit(string.replaceAll(sep, "*"), "*");
   let newTab = string.replaceAll(sep, "*").split("*");
   return newTab;
-}
-
-function displayTab(tab){
-  for(let i = 0; i < tab.length; i++)
-    {
-      console.log(tab[i]);
-    }
 }
 
 string = process.argv[2];
