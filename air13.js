@@ -11,6 +11,7 @@ const exercices = [
   { file: 'air06.js', test: () => testAir06() },
   { file: 'air07.js', test: () => testAir07() },
   { file: 'air08.js', test: () => testAir08() },
+  { file: 'air09.js', test: () => testAir09() },
 ];
 
 let successCount = 0;
@@ -143,6 +144,21 @@ function testAir08() {
     ];
     const success = tests.filter(test => JSON.stringify(sortedFusion(...test.input)) === JSON.stringify(test.expectedOutput)).length;
     console.log(`air08: (${success}/${tests.length}) ${success === tests.length ? 'sucess'.green : 'failure'.red}`);
+    testCount += tests.length;
+    successCount += success;
+    return success === tests.length;
+}
+
+function testAir09() {
+    const maRotation = require('./air09');
+    const tests = [
+      { input: [ ['Michel', 'Albert', 'Thérése', 'Benoit'] ], expectedOutput: [ 'Albert', 'Thérése', 'Benoit', 'Michel' ] },
+      { input: [ [] ], expectedOutput: "Erreur : argument incorrect" },
+      { input: [ [4, 1, 2, 3] ], expectedOutput: [ 1, 2, 3, 4] },
+      
+    ];
+    const success = tests.filter(test => JSON.stringify(maRotation(...test.input)) === JSON.stringify(test.expectedOutput)).length;
+    console.log(`air09: (${success}/${tests.length}) ${success === tests.length ? 'sucess'.green : 'failure'.red}`);
     testCount += tests.length;
     successCount += success;
     return success === tests.length;
