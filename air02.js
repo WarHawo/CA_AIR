@@ -5,7 +5,7 @@ function myStrConcat(str, sep) {
   let newStr = "";
   
   if (!str || !sep) {
-    return ("erreur: argument incorrecte");
+    return "Erreur : argument incorrect";
   }
 
   for (let i = 0; i < str.length; i++){
@@ -18,8 +18,8 @@ function myStrConcat(str, sep) {
 
 module.exports = myStrConcat;
 
-arg = process.argv.slice(2);
-str = arg.slice(0, -1);
-sep = arg[arg.length - 1];
-
-console.log(myStrConcat(str, sep));
+//arg = process.argv.slice(2);
+//str = arg.slice(0, -1);
+//sep = arg[arg.length - 1];
+//
+//console.log(myStrConcat(str, sep));

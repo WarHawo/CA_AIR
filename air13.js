@@ -5,7 +5,10 @@ const exercices = [
   { file: 'air00.js', test: () => testAir00() },
   { file: 'air01.js', test: () => testAir01() },
   { file: 'air02.js', test: () => testAir02() },
-  
+  { file: 'air03.js', test: () => testAir03() },
+  { file: 'air04.js', test: () => testAir04() },
+  { file: 'air05.js', test: () => testAir05() },
+  { file: 'air06.js', test: () => testAir06() },
 ];
 
 let successCount = 0;
@@ -17,15 +20,15 @@ function testAir00() {
   const tests = [
     { input: ['Hello World', ' '], expectedOutput: ['Hello', 'World'] },
     { input: ['hello_my_name_is_hawa', '_'], expectedOutput: ['hello', 'my', 'name', 'is', 'hawa'] },
-    { input: ['', '+'], expectedOutput: "erreur: argument incorrecte" },
-    { input: ['hello', ''], expectedOutput: "erreur: argument incorrecte" },
-    { input: ['hello my World', 'my'], expectedOutput: "erreur: argument incorrecte" },
+    { input: ['', '+'], expectedOutput: "Erreur : argument incorrect" },
+    { input: ['hello', ''], expectedOutput: "Erreur : argument incorrect" },
+    { input: ['hello my World', 'my'], expectedOutput: "Erreur : argument incorrect" },
     
   ];
   const success = tests.filter(test => JSON.stringify(mySplit(...test.input)) === JSON.stringify(test.expectedOutput)).length;
-  console.log(`air00: (${success}/${tests.length}): ${success === tests.length ? 'sucess'.green : 'failure'.red}`);
-  testCount = tests.length;
-  successCount = success;
+  console.log(`air00: (${success}/${tests.length}) ${success === tests.length ? 'sucess'.green : 'failure'.red}`);
+  testCount += tests.length;
+  successCount += success;
   return success === tests.length;
 }
 
@@ -34,28 +37,83 @@ function testAir01() {
   const tests = [
     { input: ['Hello my World', 'my'], expectedOutput: ['Hello ', ' World'] },
     { input: ['hello love my love name love is love hawa', 'love'], expectedOutput: ['hello ', ' my ', ' name ', ' is ', ' hawa'] },
-    { input: ['', 'love'], expectedOutput: "erreur: argument incorrecte" },
-    { input: ['hello', ''], expectedOutput: "erreur: argument incorrecte" },
+    { input: ['', 'love'], expectedOutput: "Erreur : argument incorrect" },
+    { input: ['hello', ''], expectedOutput: "Erreur : argument incorrect" },
   ];
   const success = tests.filter(test => JSON.stringify(mySplitStr(...test.input)) === JSON.stringify(test.expectedOutput)).length;
-  console.log(`air01: (${success}/${tests.length}): ${success === tests.length ? 'sucess'.green : 'failure'.red}`);
-  testCount = tests.length;
-  successCount = success;
+  console.log(`air01: (${success}/${tests.length}) ${success === tests.length ? 'sucess'.green : 'failure'.red}`);
+  testCount += tests.length;
+  successCount += success;
   return success === tests.length;
 }
 
 function testAir02() {
   const myStrConcat = require('./air02');
   const tests = [
-    { input: ['Hello my World', 'my'], expectedOutput: ['Hello ', ' World'] },
-    { input: ['hello love my love name love is love hawa', 'love'], expectedOutput: ['hello ', ' my ', ' name ', ' is ', ' hawa'] },
-    { input: ['', 'love'], expectedOutput: "erreur: argument incorrecte" },
-    { input: ['hello', ''], expectedOutput: "erreur: argument incorrecte" },
+    { input: ['', ''], expectedOutput: "Erreur : argument incorrect" },
+    { input: [["Salut", "les", "amis"], "+"], expectedOutput: "Salut+les+amis" },
+    { input: [["Salut"], "+"], expectedOutput: "Salut" },
   ];
-  const success = tests.filter(test => myStrConcat(...test.input)) === JSON.stringify(test.expectedOutput)).length;
-  console.log(`air01: (${success}/${tests.length}): ${success === tests.length ? 'sucess'.green : 'failure'.red}`);
-  testCount = tests.length;
-  successCount = success;
+  const success = tests.filter(test => myStrConcat(...test.input) === test.expectedOutput).length;
+  console.log(`air02: (${success}/${tests.length}) ${success === tests.length ? 'sucess'.green : 'failure'.red}`);
+  testCount += tests.length;
+  successCount += success;
+  return success === tests.length;
+}
+
+function testAir03() {
+  const findOdd = require('./air03');
+  const tests = [
+    { input: [""], expectedOutput: "Erreur : argument incorrect" },
+    { input: [ "1 2 3 4 5 4 3 2 1" ], expectedOutput: ['5'] },
+    { input: ["1 2 3 4 5 4 3 2 1 7"], expectedOutput: "Il y a plus d'un intrus" },
+  ];
+  const success = tests.filter(test => JSON.stringify(findOdd(...test.input)) === JSON.stringify(test.expectedOutput)).length;
+  console.log(`air03: (${success}/${tests.length}) ${success === tests.length ? 'sucess'.green : 'failure'.red}`);
+  testCount += tests.length;
+  successCount += success;
+  return success === tests.length;
+}
+
+function testAir04() {
+  const oneCharOnly = require('./air04');
+  const tests = [
+    { input: [''], expectedOutput: "Erreur : argument incorrect" },
+    { input: ['SSaalut les aaaaaaamiiiiiss' ], expectedOutput: 'Salut les amis' },
+    { input: ['heeeeeeellllllloooooo                   wwwwwwooorlldd'], expectedOutput: 'helo world' },
+  ];
+  const success = tests.filter(test => oneCharOnly(...test.input) === test.expectedOutput).length;
+  console.log(`air04: (${success}/${tests.length}) ${success === tests.length ? 'sucess'.green : 'failure'.red}`);
+  testCount += tests.length;
+  successCount += success;
+  return success === tests.length;
+}
+
+function testAir05() {
+  const myCalculator = require('./air05');
+  const tests = [
+    { input: [['1', '2', '3', '4', '5', '+6']], expectedOutput: [ 7, 8, 9, 10, 11 ] },
+    { input: [['-54', '0', '4585', '+65', '-85']], expectedOutput: [  -139, -85, 4500, -20 ] },
+    { input: [''], expectedOutput: "Erreur : argument incorrect" },
+  ];
+  const success = tests.filter(test => JSON.stringify(myCalculator(...test.input)) === JSON.stringify(test.expectedOutput)).length;
+  console.log(`air05: (${success}/${tests.length}) ${success === tests.length ? 'sucess'.green : 'failure'.red}`);
+  testCount += tests.length;
+  successCount += success;
+  return success === tests.length;
+}
+
+function testAir06() {
+  const eraseArray = require('./air06');
+  const tests = [
+    { input: [["Albert", "Thomas", "Erica"], "a"], expectedOutput: [] },
+    { input: [["Albert", "Thomas", "Erica"], 'e'], expectedOutput: ["Thomas"] },
+    { input: ["", "e"], expectedOutput: "Erreur : argument incorrect" },
+  ];
+  const success = tests.filter(test => JSON.stringify(eraseArray(...test.input)) === JSON.stringify(test.expectedOutput)).length;
+  console.log(`air06: (${success}/${tests.length}) ${success === tests.length ? 'sucess'.green : 'failure'.red}`);
+  testCount += tests.length;
+  successCount += success;
   return success === tests.length;
 }
 

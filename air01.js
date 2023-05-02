@@ -5,7 +5,7 @@ const {displayStrArray, displayTab} = require('./utils/display');
 
 function mySplitStr(string, sep) {
   if (!string || !sep) {
-    return ("erreur: argument incorrecte");
+    return "Erreur : argument incorrect";
   }
   
   let newTab = string.replaceAll(sep, "µ").split("µ");

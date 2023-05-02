@@ -10,7 +10,7 @@ function mySplit(string, sep) {
   let j = 0;
   
   if (!string || !sep || sep.length > 1){
-    return("erreur: argument incorrecte");
+    return "Erreur : argument incorrect";
   }
     
   for (let i = 0; i < string.length; i++) {

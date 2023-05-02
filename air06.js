@@ -6,7 +6,7 @@ function eraseArray(arrayStr, str)
     let newArray = [];
 
     if (!arrayStr || arrayStr.length < 1) {
-        return("erreur: nombre d'argument incorrect");
+        return "Erreur : argument incorrect";
     }
 
     if (str.length > 1)
@@ -16,15 +16,16 @@ function eraseArray(arrayStr, str)
     for(let i = 0; i < arrayStr.length; i++) {
         let lowerStr = arrayStr[i].toLowerCase();
         if (lowerStr.indexOf(str) == -1) {
-            newArray += arrayStr[i];
-            if (i !== arrayStr.length - 1)
-                newArray += " ";
+            newArray.push(arrayStr[i]);
         }
     }
     return newArray;
 }
 
+module.exports = eraseArray;
 
 //let argv = process.argv.slice(2);
-//let str = argv.pop();
-//console.log(eraseArray(argv, str));
+//let arg = argv.slice(0, -1);
+//let str = argv[argv.length - 1];
+//console.log(eraseArray(arg, str));
+//console.log(eraseArray(["Albert", "Thomas", "Erica"], "e"));
