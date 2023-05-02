@@ -14,6 +14,7 @@ const exercices = [
   { file: 'air09.js', test: () => testAir09() },
   { file: 'air10.js', test: () => testAir10() },
   { file: 'air11.js', test: () => testAir11() },
+  { file: 'air12.js', test: () => testAir12() },
 ];
 
 let successCount = 0;
@@ -191,7 +192,20 @@ function testAir11() {
     testCount += tests.length;
     successCount += success;
     return success === tests.length;
-  }
+}
+
+function testAir12() {
+    const quickSort = require('./air12');
+    const tests = [
+      { input: [ [4, 8,10, -20] ], expectedOutput: [ -20, 4, 8, 10 ] },
+      { input: [ [54, 0, 4585, 65, -85] ], expectedOutput: [ -85, 0, 54, 65, 4585 ] },
+    ];
+    const success = tests.filter(test => JSON.stringify(quickSort(...test.input)) === JSON.stringify(test.expectedOutput)).length;
+    console.log(`air12: (${success}/${tests.length}) ${success === tests.length ? 'sucess'.green : 'failure'.red}`);
+    testCount += tests.length;
+    successCount += success;
+    return success === tests.length;
+}
 
 exercices.forEach(({ file, test }) => {
   if(fs.existsSync(file)) {
@@ -204,4 +218,4 @@ exercices.forEach(({ file, test }) => {
   }
 });
 
-console.log(`\n\nTotal success: (${successCount}/${testCount}) \nTotal fail: ${failureCount}`);
+console.log(`\nTotal success: (${successCount}/${testCount})`.blue.bold);
