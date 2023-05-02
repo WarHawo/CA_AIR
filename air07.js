@@ -14,13 +14,12 @@ function sortedInsert(array, newElem)
     parseNumber(newElem);
 
     if (!array || !newElem) {
-        console.error("erreur : argument");
+        return("erreur : argument");
         process.exit(1);
     }
 
     if (!isSorted(array)) {
-        console.error("erreur: le premier tableau doit etre triee ");
-        process.exit(1);
+        return("erreur: le premier tableau doit etre triee ");
     }
 
     for (let i = 0; i < array.length; i++) {
@@ -32,7 +31,6 @@ function sortedInsert(array, newElem)
     return newArray;
 }
 
-let array = process.argv.slice(2);
-let newElem = array.pop();
-
-displayStrArray(sortedInsert(array, newElem)); 
+//let array = process.argv.slice(2);
+//let newElem = array.pop();
+//displayStrArray(sortedInsert(array, newElem)); 

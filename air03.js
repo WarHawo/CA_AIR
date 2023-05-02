@@ -5,8 +5,7 @@ function findOdd(args)
 {
   let occurence = [];
   if (!args || (args.length % 2) == 0) {
-    console.error("erreur: nombre d'arguments incorrect");
-    process.exit(1);
+    return("erreur: nombre d'arguments incorrect");
   }
  
   for (let i =0; i< args.length; i++) {
@@ -22,5 +21,5 @@ function findOdd(args)
   return occurence;
 }
 
-args = process.argv.slice(2)
-console.log(findOdd(args));
+//args = process.argv.slice(2)
+//console.log(findOdd(args));

@@ -7,8 +7,7 @@ function maRotation(array)
 {
     let newStr = [];
     if (!array || array.length < 1) {
-        console.error("erreur : argument");
-        process.exit(1);
+        return("erreur : argument");
     }
     newStr[array.length - 1] = array[0];
     for (let i = 0; i < array.length - 1; i++) {
@@ -17,5 +16,5 @@ function maRotation(array)
     return newStr;
 }
 
-argv = process.argv.slice(2);
-displayStrArray(maRotation(argv));
+//argv = process.argv.slice(2);
+//displayStrArray(maRotation(argv));

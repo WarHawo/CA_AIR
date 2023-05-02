@@ -3,8 +3,7 @@
 function oneCharOnly(args)
 {
     if (args.length !== 1) {
-        console.error("erreur : nombre d'argument incorrecte");
-        process.exit(1);
+        return("erreur : nombre d'argument incorrecte");
     }
 
     let newStr = args[0][0];
@@ -16,5 +15,5 @@ function oneCharOnly(args)
     return newStr;
 }
 
-args = process.argv.slice(2);
-console.log(oneCharOnly(args));
+//args = process.argv.slice(2);
+//console.log(oneCharOnly(args));

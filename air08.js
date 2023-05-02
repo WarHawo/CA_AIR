@@ -27,14 +27,14 @@ function sortedFusion(arr1,arr2)
   return arr;
 }
 
-const args = process.argv.slice(2);
-const index = args.indexOf("fusion");
-
-if (index < 0 || index === 0 || index === args.length - 1) {
-  console.error("Erreur : format des arguments invalide.");
-  process.exit(1);
-}
-const array1 = args.slice(0, index).map(Number);
-const array2 = args.slice(index + 1).map(Number);
-
-displayStrArray(sortedFusion(array1, array2));
+//const args = process.argv.slice(2);
+//const index = args.indexOf("fusion");
+//
+//if (index < 0 || index === 0 || index === args.length - 1) {
+//  console.error("Erreur : format des arguments invalide.");
+//  process.exit(1);
+//}
+//const array1 = args.slice(0, index).map(Number);
+//const array2 = args.slice(index + 1).map(Number);
+//
+//displayStrArray(sortedFusion(array1, array2));

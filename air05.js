@@ -5,8 +5,7 @@ const parseNumber = require('./utils/parseNumber');
 
 function myCalculator(args) {
     if (!args || args.length < 2) {
-        console.error("erreur, le nombre d'argument est incorrecte");
-        process.exit(1);
+        return("erreur, le nombre d'argument est incorrecte");
     }
     parseNumber(args);
 
@@ -26,13 +25,12 @@ function myCalculator(args) {
             result[i] = Number(args[i]) - Number(num);
         }
         else {
-            console.error("erreur, operation");
-            process.exit(1);
+            return("erreur, operation");
         }
     }
     return result;
 }
 
-let args = process.argv.slice(2);
-
-displayStrArray(myCalculator(args));
+//let args = process.argv.slice(2);
+//
+//displayStrArray(myCalculator(args));

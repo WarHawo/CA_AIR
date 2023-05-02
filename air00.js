@@ -10,8 +10,7 @@ function mySplit(string, sep) {
   let j = 0;
   
   if (!string || !sep || sep.length > 1){
-    console.error("erreur: le nombre d'arguments est incorrecte");
-    process.exit(1);
+    return("erreur: le nombre d'argument est incorrecte");
   }
     
   for (let i = 0; i < string.length; i++) {
@@ -31,5 +30,7 @@ function mySplit(string, sep) {
   return tab;
 }
 
-string = process.argv[2];
-displayTab(mySplit(string, " "));
+module.exports = mySplit;
+
+//string = process.argv[2];
+//displayTab(mySplit(string, " "));

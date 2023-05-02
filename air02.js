@@ -5,19 +5,21 @@ function myStrConcat(str, sep) {
   let newStr = "";
   
   if (!str || !sep) {
-    console.error("erreur, le nombre d'argument est incorrecte");
-    process.exit(1);
+    return ("erreur, le nombre d'argument est incorrecte");
   }
 
-  for (let i = 0; i < str.length - 1; i++){
+  for (let i = 0; i < str.length; i++){
     newStr += str[i];
-    if (i !== str.length - 2)
+    if (i !== str.length - 1)
       newStr += sep;
   }
   return newStr;
 }
 
-str = process.argv.slice(2);
-sep = str[str.length - 1];
+module.exports = myStrConcat;
 
-console.log(myStrConcat(str, sep));
+//arg = process.argv.slice(2);
+//str = arg.slice(0, -1);
+//sep = arg[arg.length - 1];
+//
+//console.log(myStrConcat(str, sep));

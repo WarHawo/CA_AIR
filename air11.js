@@ -3,8 +3,7 @@
 function drawPyramide(char, nbEtage) 
 {
     if (!char || !nbEtage || isNaN(Number(nbEtage)) || nbEtage < 1) {
-     console.error("erreur: argument");
-     process.exit(1);
+     return("erreur: argument");
     }
 
     for (let i = 1; i <= nbEtage; i++) {
@@ -18,4 +17,4 @@ function drawPyramide(char, nbEtage)
 let char = process.argv[2];
 let nbEtage = process.argv[3];
 
-drawPyramide(char, nbEtage);
+//drawPyramide(char, nbEtage);

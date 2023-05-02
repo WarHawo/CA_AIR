@@ -4,13 +4,11 @@ function readFileArg(arg)
 {
     const fs = require("fs");
     if (!arg){
-        console.error("erreur : argument");
-        process.exit(1);
+        return("erreur : argument");
     }
     fs.readFile(arg, "utf-8" , (err, data) => {
         if (err) {
-            console.error(err);
-            return ;
+            return("erreur lecture du fichier");
         }
         console.log(data);
     });

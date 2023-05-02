@@ -22,6 +22,5 @@ function quickSort(array) {
     return quickSort(left).concat([pivot], quickSort(right));
 }
 
-
-array = process.argv.slice(2);
-displayStrArray(quickSort(array));
+//array = process.argv.slice(2);
+//displayStrArray(quickSort(array));

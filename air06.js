@@ -6,8 +6,7 @@ function eraseArray(arrayStr, str)
     let newArray = [];
 
     if (!arrayStr || arrayStr.length < 1) {
-        console.error("erreur: nombre d'argument incorrect");
-        process.exit(1);
+        return("erreur: nombre d'argument incorrect");
     }
 
     if (str.length > 1)
@@ -26,9 +25,6 @@ function eraseArray(arrayStr, str)
 }
 
 
-let argv = process.argv.slice(2);
-let str = argv.pop();
-
-
-console.log(eraseArray(argv, str));
-
+//let argv = process.argv.slice(2);
+//let str = argv.pop();
+//console.log(eraseArray(argv, str));

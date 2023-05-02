@@ -1,7 +1,6 @@
 {
   "name": "ca_air",
   "version": "1.0.0",
-  "description": "",
   "main": "air00.js",
   "scripts": {
     "test": "jest"
@@ -19,5 +18,9 @@
   "homepage": "https://github.com/WarHawo/CA_AIR#readme",
   "devDependencies": {
     "jest": "^29.5.0"
+  },
+  "description": "",
+  "dependencies": {
+    "colors": "^1.4.0"
   }
 }
