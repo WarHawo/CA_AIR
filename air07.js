@@ -14,23 +14,24 @@ function sortedInsert(array, newElem)
     parseNumber(newElem);
 
     if (!array || !newElem) {
-        return("erreur : argument");
-        process.exit(1);
+        return "Erreur : argument incorrect";
     }
 
     if (!isSorted(array)) {
-        return("erreur: le premier tableau doit etre triee ");
+        return("Erreur: le tableau en argument doit etre trié");
     }
 
     for (let i = 0; i < array.length; i++) {
-        str [i]= Number(array[i]);
+        str [i] = Number(array[i]);
     }
     str[str.length] = Number(newElem);
     let newArray = sortArray(str);
 
     return newArray;
 }
+module.exports = sortedInsert;
 
-//let array = process.argv.slice(2);
-//let newElem = array.pop();
+//let argv = process.argv.slice(2);
+//let array = argv.slice(0, -1);
+//let newElem = argv[argv.length - 1];
 //displayStrArray(sortedInsert(array, newElem)); 

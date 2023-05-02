@@ -9,6 +9,7 @@ const exercices = [
   { file: 'air04.js', test: () => testAir04() },
   { file: 'air05.js', test: () => testAir05() },
   { file: 'air06.js', test: () => testAir06() },
+  { file: 'air07.js', test: () => testAir07() },
 ];
 
 let successCount = 0;
@@ -116,6 +117,20 @@ function testAir06() {
   successCount += success;
   return success === tests.length;
 }
+
+function testAir07() {
+    const sortedInsert = require('./air07');
+    const tests = [
+      { input: [[1, 3, 4], 2], expectedOutput: [1, 2, 3, 4] },
+      { input: [[3, 1, 4], 2], expectedOutput: "Erreur: le tableau en argument doit etre trié" },
+      
+    ];
+    const success = tests.filter(test => JSON.stringify(sortedInsert(...test.input)) === JSON.stringify(test.expectedOutput)).length;
+    console.log(`7: (${success}/${tests.length}) ${success === tests.length ? 'sucess'.green : 'failure'.red}`);
+    testCount += tests.length;
+    successCount += success;
+    return success === tests.length;
+  }
 
 exercices.forEach(({ file, test }) => {
   if(fs.existsSync(file)) {
