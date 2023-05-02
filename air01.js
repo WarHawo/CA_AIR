@@ -5,13 +5,14 @@ const {displayStrArray, displayTab} = require('./utils/display');
 
 function mySplitStr(string, sep) {
   if (!string || !sep) {
-    return ("erreur: le nombre d'argument est incorrecte");
+    return ("erreur: argument incorrecte");
   }
   
-  let newTab = string.replaceAll(sep, "*").split("*");
+  let newTab = string.replaceAll(sep, "µ").split("µ");
   return newTab;
 }
 module.exports = mySplitStr;
+
 //string = process.argv[2];
 //sep = process.argv[3];
-//displayTab(mySplitStr(string, sep));
+//console.log(mySplitStr(string, sep));
