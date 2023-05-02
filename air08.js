@@ -7,7 +7,10 @@ const parseNumber = require('./utils/parseNumber');
 
   
 function sortedFusion(arr1,arr2)
-{   
+{ 
+  if (arr1.length < 1 || arr2.length < 1){
+    return "Erreur : argument incorrect";
+  }  
   parseNumber(arr1);
   parseNumber(arr2);
   const newArray = [];
@@ -26,6 +29,7 @@ function sortedFusion(arr1,arr2)
 
   return arr;
 }
+module.exports = sortedFusion;
 
 //const args = process.argv.slice(2);
 //const index = args.indexOf("fusion");
