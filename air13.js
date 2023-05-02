@@ -13,6 +13,7 @@ const exercices = [
   { file: 'air08.js', test: () => testAir08() },
   { file: 'air09.js', test: () => testAir09() },
   { file: 'air10.js', test: () => testAir10() },
+  { file: 'air11.js', test: () => testAir11() },
 ];
 
 let successCount = 0;
@@ -171,10 +172,22 @@ function testAir10() {
       { input: [ "./testFiles/test1.txt" ], expectedOutput: "Hello World\n" },
       { input: [ "./testFiles/test2.txt" ], expectedOutput: "This is a test file\n1234" },
       { input: [ "" ], expectedOutput: "Erreur: aucun fichier de ce nom" },
-
     ];
     const success = tests.filter(test => readFileArg(...test.input) === test.expectedOutput).length;
     console.log(`air10: (${success}/${tests.length}) ${success === tests.length ? 'sucess'.green : 'failure'.red}`);
+    testCount += tests.length;
+    successCount += success;
+    return success === tests.length;
+}
+
+function testAir11() {
+    const drawPyramide = require('./air11');
+    const tests = [
+      { input: [ "*", 5 ], expectedOutput: "    *\n   ***\n  *****\n *******\n*********" },
+      { input: [ "", 5 ], expectedOutput: "Erreur : argument incorrect" },
+    ];
+    const success = tests.filter(test => drawPyramide(...test.input) === test.expectedOutput).length;
+    console.log(`air11: (${success}/${tests.length}) ${success === tests.length ? 'sucess'.green : 'failure'.red}`);
     testCount += tests.length;
     successCount += success;
     return success === tests.length;
