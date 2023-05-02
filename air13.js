@@ -12,6 +12,7 @@ const exercices = [
   { file: 'air07.js', test: () => testAir07() },
   { file: 'air08.js', test: () => testAir08() },
   { file: 'air09.js', test: () => testAir09() },
+  { file: 'air10.js', test: () => testAir10() },
 ];
 
 let successCount = 0;
@@ -163,6 +164,21 @@ function testAir09() {
     successCount += success;
     return success === tests.length;
 }
+
+function testAir10() {
+    const readFileArg = require('./air10');
+    const tests = [
+      { input: [ "./testFiles/test1.txt" ], expectedOutput: "Hello World\n" },
+      { input: [ "./testFiles/test2.txt" ], expectedOutput: "This is a test file\n1234" },
+      { input: [ "" ], expectedOutput: "Erreur: aucun fichier de ce nom" },
+
+    ];
+    const success = tests.filter(test => readFileArg(...test.input) === test.expectedOutput).length;
+    console.log(`air10: (${success}/${tests.length}) ${success === tests.length ? 'sucess'.green : 'failure'.red}`);
+    testCount += tests.length;
+    successCount += success;
+    return success === tests.length;
+  }
 
 exercices.forEach(({ file, test }) => {
   if(fs.existsSync(file)) {
